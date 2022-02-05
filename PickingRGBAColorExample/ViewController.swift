@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     guard let type = PositionType(rawValue: sender.tag) else {
       return
     }
-    previewView.backgroundColor = pickColor(at: type)
+    previewView.backgroundColor = pickColor(at: type, in: imageView.image)
     pickedColorLabel.text = type.title
   }
   
@@ -68,8 +68,24 @@ class ViewController: UIViewController {
     }
   }
   
-  private func pickColor(at: PositionType) -> UIColor? {
-    return nil
+  private func pickColor(at type: PositionType, in image: UIImage?) -> UIColor? {
+    guard let image = image, let cgImage = image.cgImage else {
+      return nil
+    }
+    let point: CGPoint
+    switch type {
+    case .topLeft:
+      point = .zero
+    case .topRight:
+      point = .init(x: cgImage.width - 1, y: 0)
+    case .bottomLeft:
+      point = .init(x: 0, y: cgImage.height - 1)
+    case .bottomRight:
+      point = .init(x: cgImage.width - 1, y: cgImage.height - 1)
+    case .center:
+      point = .init(x: cgImage.width / 2, y: cgImage.height / 2)
+    }
+    return image.pickColor(at: point)
   }
 
 }

@@ -71,6 +71,9 @@
                                                                                         <rect key="frame" x="126" y="0.0" width="118" height="31"/>
                                                                                         <state key="normal" title="Button"/>
                                                                                         <buttonConfiguration key="configuration" style="tinted" title="Top Right"/>
+                                                                                        <connections>
+                                                                                            <action selector="didTapPickingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M3w-9t-Igs"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -81,11 +84,17 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="118" height="31"/>
                                                                                         <state key="normal" title="Button"/>
                                                                                         <buttonConfiguration key="configuration" style="tinted" title="Bottom Left"/>
+                                                                                        <connections>
+                                                                                            <action selector="didTapPickingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="USl-wW-kFg"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Duo-SZ-3dI">
                                                                                         <rect key="frame" x="126" y="0.0" width="118" height="31"/>
                                                                                         <state key="normal" title="Button"/>
                                                                                         <buttonConfiguration key="configuration" style="tinted" title="Bottom Right"/>
+                                                                                        <connections>
+                                                                                            <action selector="didTapPickingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ib5-18-3yH"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -96,6 +105,9 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="244" height="31"/>
                                                                                         <state key="normal" title="Button"/>
                                                                                         <buttonConfiguration key="configuration" style="tinted" title="Center"/>
+                                                                                        <connections>
+                                                                                            <action selector="didTapPickingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O1p-oF-kfU"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
