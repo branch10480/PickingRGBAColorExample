@@ -8,12 +8,69 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+  
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var textField: UITextField!
+  @IBOutlet weak var previewView: UIView!
+  @IBOutlet weak var pickedColorLabel: UILabel!
+  
+  private enum PositionType: Int {
+    case topLeft = 0
+    case topRight = 1
+    case bottomLeft = 2
+    case bottomRight = 3
+    case center = 4
+    
+    var title: String {
+      switch self {
+      case .topLeft: return "Top Left"
+      case .topRight: return "Top Right"
+      case .bottomLeft: return "Bottom Left"
+      case .bottomRight: return "Bottom Right"
+      case .center: return "Center"
+      }
+    }
+  }
+  
+  private let defaultURLString = "https://gaugau.ismcdn.jp/mwimgs/1/8/576wm/img_1837965a2b7d6483af900fc801a3d262785637.jpg"
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    setup()
   }
-
+  
+  @IBAction func didTapPickingButton(_ sender: UIButton) {
+    guard let type = PositionType(rawValue: sender.tag) else {
+      return
+    }
+    previewView.backgroundColor = pickColor(at: type)
+    pickedColorLabel.text = type.title
+  }
+  
+  private func setup() {
+    imageView.contentMode = .scaleAspectFit
+    imageView.backgroundColor = .black
+    textField.text = defaultURLString
+    previewView.layer.cornerRadius = 8
+    previewView.layer.masksToBounds = true
+    showImage()
+  }
+  
+  private func showImage() {
+    guard let string = textField.text, let url = URL(string: string) else {
+      return
+    }
+    do {
+      let data = try Data(contentsOf: url)
+      imageView.image = .init(data: data)
+    } catch(let e) {
+      print(e.localizedDescription)
+    }
+  }
+  
+  private func pickColor(at: PositionType) -> UIColor? {
+    return nil
+  }
 
 }
 
